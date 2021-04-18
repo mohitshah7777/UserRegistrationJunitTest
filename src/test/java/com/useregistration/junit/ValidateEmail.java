@@ -19,13 +19,13 @@ public class ValidateEmail {
     @Parameterized.Parameters
     public static Collection<Object[]> testData() {
         Object[][] data = new Object[][]{
-                {"abc@yahoo.com,", true}
-                , {"abc-100@yahoo.com,", true}
+                {"abc@yahoo.com", true}
+                , {"abc-100@yahoo.com", true}
                 , {"abc.100@yahoo.com", true}
-                , {"abc111@abc.com,", true}
-                , {"abc-100@abc.net,", true}
+                , {"abc111@abc.com", true}
+                , {"abc-100@abc.net", true}
                 , {"abc.100@abc.com.au", true}
-                , {"abc@1.com,", true}
+                , {"abc@1.com", true}
                 , {"abc@gmail.com.com", true}
                 , {"abc+100@gmail.com", true}
                 , {"abc", false}
@@ -37,12 +37,12 @@ public class ValidateEmail {
                 , {"abc()*@gmail.com", false}
                 , {"abc@%*.com", false}
                 , {"abc..2002@gmail.com", false}
-                , {"abc@abc@gmail.com", true}
+                , {"abc@abc@gmail.com", false}
                 , {"abc@gmail.com.1a", false}};
         return Arrays.asList(data);
     }
     @Test
-    public void givenEmailAsVar_ShouldReturnAsPerTheParameterizedResult() {
+    public void givenEmailAsVar_ShouldReturnAsPerTheParameterizedResult() throws UserRegistrationException {
         UserRegistration user = new UserRegistration();
         boolean result = user.userEmail(this.emailTest);
         Assert.assertEquals(this.expectedResult, result);
