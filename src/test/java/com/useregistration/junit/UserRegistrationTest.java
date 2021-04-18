@@ -59,7 +59,7 @@ public class UserRegistrationTest {
         }catch(UserRegistrationException e){
             Assert.assertEquals("Invalid Email",e.getMessage());
         }
-        }
+    }
 
     @Test
     public void mobileNumber_WhenTrue() throws UserRegistrationException {
@@ -75,8 +75,7 @@ public class UserRegistrationTest {
         }catch(UserRegistrationException e){
             Assert.assertEquals("Invalid Mobile Number",e.getMessage());
         }
-        }
-
+    }
 
     @Test
     public void password_WhenTrue() throws UserRegistrationException {
@@ -92,5 +91,5 @@ public class UserRegistrationTest {
         }catch (UserRegistrationException e){
             Assert.assertEquals("Invalid Password",e.getMessage());
         }
-        }
+    }
 }
